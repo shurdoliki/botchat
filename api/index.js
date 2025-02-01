@@ -1,5 +1,7 @@
 export default async function handler(req, res) {
     const openaiApiKey = process.env.OPENAI_API_KEY;
+    console.log("API KEY:", openaiApiKey ? "POSTOJI" : "NE POSTOJI");
+
 
     if (!openaiApiKey) {
         return res.status(500).json({ error: "API ključ nije pronađen!" });
