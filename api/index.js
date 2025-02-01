@@ -1,14 +1,12 @@
 export default async function handler(req, res) {
     const openaiApiKey = process.env.OPENAI_API_KEY;
-    console.log("API KEY:", openaiApiKey ? "POSTOJI" : "NE POSTOJI");
-
 
     if (!openaiApiKey) {
         return res.status(500).json({ error: "API ključ nije pronađen!" });
     }
 
-    let userMessage = req.query.message || "Ćao, Deda Močo! Kako si?";
-
+    let userMessage = req.query.message || "Ćao, Deda Močo!";
+    
     try {
         const response = await fetch("https://api.openai.com/v1/chat/completions", {
             method: "POST",
@@ -25,22 +23,15 @@ export default async function handler(req, res) {
             })
         });
 
-        if (!response.ok) {
-            throw new Error(`OpenAI API error: ${response.statusText}`);
-        }
-
         const data = await response.json();
-
-        if (!data.choices || data.choices.length === 0) {
-            throw new Error("Prazan odgovor od OpenAI.");
+        
+        if (response.ok) {
+            res.json({ message: data.choices[0].message.content });
+        } else {
+            res.status(500).json({ error: "Došlo je do greške u komunikaciji sa OpenAI.", details: data });
         }
-
-        res.json({ message: data.choices[0].message.content });
 
     } catch (error) {
-        console.error("Greška:", error);
-        res.status(500).json({ error: "Došlo je do greške u komunikaciji sa OpenAI." });
+        res.status(500).json({ error: "Došlo je do interne greške.", details: error.message });
     }
 }
-
-
