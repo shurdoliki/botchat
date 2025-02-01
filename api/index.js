@@ -5,7 +5,7 @@ export default async function handler(req, res) {
         return res.status(500).json({ error: "API ključ nije pronađen!" });
     }
 
-    let userMessage = req.query.message || "Ćao, Deda Močo!";
+    let userMessage = req.query.message || "Ćao, Deda Močo! Kako si?";
 
     try {
         const response = await fetch("https://api.openai.com/v1/chat/completions", {
