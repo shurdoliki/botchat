@@ -1,5 +1,6 @@
 export default async function handler(req, res) {
-    const OPENAI_API_KEY = "OVDE_UNESI_SVOJ_API_KLJUČ"; // OVAJ KLJUČ DOBIJAŠ NA OpenAI PLATFORMI
+    const OPENAI_API_KEY = "const apiKey = process.env.OPENAI_API_KEY;
+"; // OVAJ KLJUČ DOBIJAŠ NA OpenAI PLATFORMI
 
     let userMessage = req.query.message || "Ćao, Deda Močo!";
     
