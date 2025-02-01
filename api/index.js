@@ -1,7 +1,7 @@
 export default async function handler(req, res) {
     const openaiApiKey = process.env.OPENAI_API_KEY;
 
-"; // OVAJ KLJUČ DOBIJAŠ NA OpenAI PLATFORMI// test redeploy // Tes
+"; // OVAJ KLJUČ DOBIJAŠ NA OpenAI PLATFORMI// test redeploy // Test
     export default function handler(req, res) {
     if (!process.env.OPENAI_API_KEY) {
         return res.status(500).json({ error: "API ključ nije pronađen!" });
