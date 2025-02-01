@@ -1,6 +1,6 @@
 export default async function handler(req, res) {
     const OPENAI_API_KEY = "const apiKey = process.env.OPENAI_API_KEY;
-"; // OVAJ KLJUČ DOBIJAŠ NA OpenAI PLATFORMI// test redeploy // Test
+"; // OVAJ KLJUČ DOBIJAŠ NA OpenAI PLATFORMI// test redeploy // Tes
 
     let userMessage = req.query.message || "Ćao, Deda Močo!";
     
