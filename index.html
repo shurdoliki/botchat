@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="sr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Španski Anki</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header>
+        <h1>Španski Anki</h1>
+        <p>Uči španski kroz kartice sa srpskim i španskim izrazima.</p>
+      </header>
+
+      <section class="progress" aria-label="Napredak">
+        <div>Tačno: <strong id="correctCount">0</strong></div>
+        <div>Teško: <strong id="hardCount">0</strong></div>
+        <div>Ukupno: <strong id="totalCount">0</strong></div>
+      </section>
+
+      <section class="card-area" aria-live="polite">
+        <article class="card" id="flashcard">
+          <p class="label">Srpski</p>
+          <p class="content" id="frontText"></p>
+          <p class="label hidden" id="backLabel">Španski</p>
+          <p class="content hidden" id="backText"></p>
+        </article>
+      </section>
+
+      <section class="actions">
+        <button id="flipBtn" type="button">Prikaži prevod</button>
+        <button id="againBtn" type="button" disabled>Ponovi</button>
+        <button id="hardBtn" type="button" disabled>Teško</button>
+        <button id="easyBtn" type="button" disabled>Znam</button>
+      </section>
+
+      <section class="manage">
+        <h2>Dodaj novu karticu</h2>
+        <form id="cardForm">
+          <label>
+            Srpski
+            <input id="serbianInput" name="serbian" required />
+          </label>
+          <label>
+            Španski
+            <input id="spanishInput" name="spanish" required />
+          </label>
+          <button type="submit">Dodaj karticu</button>
+        </form>
+      </section>
+    </main>
+
+    <script src="app.js" type="module"></script>
+  </body>
+</html>
